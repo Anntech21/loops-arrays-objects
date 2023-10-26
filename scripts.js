@@ -37,7 +37,9 @@ for (i = 0; i < magazines.length; i++) {
   magazineEditors.push(editorName);
 }
 
-console.log(magazineEditors);
+console.log(magazineEditors); 
+//(4) ['Judy White', 'William Randle', 'Franklin Post', 'Abigail Smithers']
+
 
 /********************** Exercise 2 ***********************/
 
@@ -82,15 +84,27 @@ let movieTheater = [
 
 // Loop through this collection to log to the console all of the theaters that are playing a comedy.
 
-let comedies = [];
-for (i = 0; i < movieTheater.length; i++) {
-  if (movieTheater[i].genre === "Comedy") comedies.push(movieTheater[i]);
- // { console.log(movieTheater[i].theater)}
+for(let i=0; i<movieTheater.length; i++){
+  if(movieTheater[i].genre === 'Comedy'){
+    console.log(movieTheater[i].theater)
+  }
 }
 
-console.log(comedies),
-  
+// console log all theater names
+let comedies = [];
+for (i = 0; i < movieTheater.length; i++) {
+{ console.log(movieTheater[i].theater)}
+}
 
+// console log comedy movies running in theater
+comedies = [];
+for (i = 0; i < movieTheater.length; i++) {
+  if (movieTheater[i].genre === "Comedy") comedies.push(movieTheater[i]);
+}
+console.log(comedies);
+  
+//{theater: 'Theater2', movieName: 'Ace Ventura', duration: 90, genre: 'Comedy'}
+//{theater: 'Theater5', movieName: 'Office Space', duration: 120, genre: 'Comedy'}
 /********************** Exercise 3 ***********************/
 
 let arrayNumbers = [0, 7, 10, 12, 13, 20, 23, 27, 30, 60, 67, 88];
@@ -105,7 +119,7 @@ for (i = 0; i < arrayNumbers.length; i++) {
     divisibleArray.push(numbers);
   }
 }
-console.log(divisibleArray);
+console.log(divisibleArray); //(5) [0, 10, 20, 30, 60]
 
 
 /********************** Exercise 4 ***********************/
@@ -125,11 +139,22 @@ let arrayWords = [
 
 // Use a loop to log this to the console as one string.
 
-let sentence = "";
-for (i = 0; i < arrayWords.length; i++) {
-  sentence = sentence + arrayWords[i] + "";
+let sentence1 = "";
+for (let i = 0; i < arrayWords.length; i++) {
+  sentence1 += arrayWords[i] + " ";
 }
-console.log(sentence);
+
+console.log(sentence1.trim());//To be or not to be, that is the question.
+
+//object in one line with spaces
+let statement = "";
+for (i = 0; i < arrayWords.length; i++) {
+  statement += arrayWords[i] + " "; // 'To be or not to be, that is the question. '
+}
+console.log(statement);
+
+//string without spaces
+//statement = statement + arrayWords[i] + ""; //Tobeornottobe,thatisthequestion.
 
 /********************** BONUS EXERCISES ***********************/
 
@@ -143,18 +168,18 @@ console.log(sentence);
 
 let novels =[
   {
-    title:"Coldest Winter Ever ",
-    author:'Sista Soulja ',
+    title:"ABC",
+    author:'BCD ',
     alreadyRead:true
   },
   {
-    title:'Midnight',
-    author:"Sista Soulja",
+    title:'EFG',
+    author:"EGH",
     alreadyRead:false
   },
   {
-    title:'Life After Death',
-    author:"Sista Soulja ",
+    title:'IJK',
+    author:"JKL ",
     alreadyRead:true
   }
 ];
@@ -167,6 +192,10 @@ for(let i=0;i<novels.length;i++){
     console.log(`you still need to read ${novelInfo}.`)
   }
 }
+//you already read "ABC" by BCD .
+//VM395:7 you still need to read "EFG" by EGH.
+//VM395:5 you already read "IJK" by JKL .
+
 /********************** Exercise 6 ***********************/
 
 // Review the following code
@@ -191,9 +220,23 @@ let eventSchedule = {
   Sunday: "Rest and relaxation day",
 };
 
-console.log("Weekly Event Schedule\n");
-
 // Log the schedule for each day of the week.
+
+console.log("Weekly Event Schedule\n");
+for(let i = 0;i<daysOfWeek.length;i++){
+  let day = daysOfWeek[i];
+  let event = eventSchedule[day];
+  console.log(`${day}: ${event}`);
+}
+
+//Weekly Event Schedule
+//Monday: Yoga class at 8:00 AM
+//VM440:4 Tuesday: Running club meetup at 6:30 PM
+//VM440:4 Wednesday: Cooking workshop at 5:00 PM
+//VM440:4 Thursday: Guitar lessons at 4:00 PM
+//VM440:4 Friday: Movie night at 7:00 PM
+//VM440:4 Saturday: Outdoor hike at 9:00 AM
+//VM440:4 Sunday: Rest and relaxation day
 
 /********************** Exercise 7 ***********************/
 
@@ -203,6 +246,9 @@ let scores = [85, 92, 78, 90, 88, 95];
 let totalScore = 0;
 
 // Your for loop here
+for(let i = 0;i<scores.length;i++){
+  totalScore+= scores[i]
+}
 
 let averageScore = totalScore / scores.length;
-console.log("Average Score:" + averageScore)
+console.log("Average Score:" + averageScore);//Average Score:88
